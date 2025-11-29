@@ -6,7 +6,7 @@ export default function CompanyCard({ name, logo, description }) {
 
   return (
     <div className="card card-hover">
-      <img src={logo} className="card-logo" />
+      {logo && <img src={logo} alt={`${name} logo`} className="card-logo" />}
       <h2 className="card-title">{name}</h2>
       {description && <p className="card-text">{description}</p>}
       <div className="mt-4">

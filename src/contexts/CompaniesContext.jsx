@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
 import googleLogo from '../assets/logos/google.png';
 import amazonLogo from '../assets/logos/amazon.png';
+import infosysLogo from '../assets/logos/infosys.png';
 
 const CompaniesContext = createContext(null);
 export function useCompanies() { return useContext(CompaniesContext); }
@@ -8,9 +9,9 @@ export function useCompanies() { return useContext(CompaniesContext); }
 const STORAGE_KEY = 'cf-companies';
 
 const defaultCompanies = [
-  { id: 1, name: 'Google', status: 'Active', booths: 2, logo: '/assets/logos/google.png', description: 'Technology & Cloud Computing' },
+  { id: 1, name: 'Google', status: 'Active', booths: 2, logo: googleLogo, description: 'Technology & Cloud Computing' },
   { id: 2, name: 'Amazon', status: 'Active', booths: 3, logo: amazonLogo, description: 'E-commerce & AWS Services' },
-  { id: 3, name: 'Infosys', status: 'Pending', booths: 1, logo: '/assets/logos/infosys.png', description: 'IT Services & Consulting' },
+  { id: 3, name: 'Infosys', status: 'Pending', booths: 1, logo: infosysLogo, description: 'IT Services & Consulting' },
 ];
 
 export function CompaniesProvider({ children }) {
@@ -46,10 +47,13 @@ export function CompaniesProvider({ children }) {
     setCompanies(prev => prev.filter(c => c.id !== id));
   }, []);
 
-  // Ensure legacy entries without description have fallback when consumed
+  // Ensure legacy entries without description/logo have fallback when consumed
+  const logoMap = { Google: googleLogo, Amazon: amazonLogo, Infosys: infosysLogo };
   const hydrated = companies.map(c => ({
     ...c,
-    description: c.description || 'No description yet.'
+    description: c.description || 'No description yet.',
+    // Prefer known, bundled logos; otherwise hide invalid legacy paths
+    logo: logoMap[c.name] ?? (c.logo && !String(c.logo).startsWith('/assets/') ? c.logo : undefined),
   }));
 
   const value = { companies: hydrated, addCompany, updateCompany, deleteCompany };

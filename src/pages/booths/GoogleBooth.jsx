@@ -4,7 +4,7 @@ export default function GoogleBooth() {
   return (
     <div className="container" style={{ padding: '32px 16px' }}>
       <div className="video-hero">
-        <video autoPlay muted loop src="/assets/videos/google-bg.mp4" />
+        <video autoPlay muted loop src="/public/assets/videos/videoplayback.mp4" />
       </div>
       <h1 className="title-xl mb-6">Google Booth</h1>
       <div className="card">

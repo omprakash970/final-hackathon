@@ -1,24 +1,23 @@
 import React from 'react';
-import StudentLayout from '../../layouts/StudentLayout';
 
 export default function StudentResume() {
   return (
-    <StudentLayout>
-      <h1 className="text-3xl font-bold mb-6">My Resume</h1>
-      <div className="bg-white rounded-lg shadow p-6 max-w-2xl">
+    <div className="container" style={{ padding: '32px 16px' }}>
+      <h1 className="title-xl mb-6">My Resume</h1>
+      <div className="card container-narrow">
         <div className="mb-4">
-          <label className="block text-gray-700 font-semibold mb-2">Full Name</label>
-          <input type="text" className="w-full px-4 py-2 border rounded-lg" />
+          <label className="label">Full Name</label>
+          <input type="text" className="form-field" />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 font-semibold mb-2">Email</label>
-          <input type="email" className="w-full px-4 py-2 border rounded-lg" />
+          <label className="label">Email</label>
+          <input type="email" className="form-field" />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 font-semibold mb-2">Skills</label>
-          <textarea className="w-full px-4 py-2 border rounded-lg h-32"></textarea>
+          <label className="label">Skills</label>
+          <textarea className="form-field" style={{ height: 128 }}></textarea>
         </div>
       </div>
-    </StudentLayout>
+    </div>
   );
 }

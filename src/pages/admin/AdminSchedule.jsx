@@ -6,23 +6,21 @@ export default function AdminSchedule() {
   ];
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold text-gray-800">Event Schedule</h1>
-        <button className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
-          + Add Event
-        </button>
+    <div className="container" style={{ padding: '32px 16px' }}>
+      <div className="row space-between mb-6">
+        <h1 className="title-xl" style={{ marginBottom: 0 }}>Event Schedule</h1>
+        <button className="btn btn-green">+ Add Event</button>
       </div>
-      <div className="grid gap-4">
+      <div style={{ display: 'grid', gap: 16 }}>
         {schedules.map((schedule) => (
-          <div key={schedule.id} className="bg-white rounded-lg shadow p-6 flex justify-between items-center">
+          <div key={schedule.id} className="card row space-between">
             <div>
-              <h3 className="text-xl font-semibold text-gray-800">{schedule.event}</h3>
-              <p className="text-gray-500">{schedule.date} at {schedule.time} • {schedule.venue}</p>
+              <h3 className="title-lg" style={{ marginBottom: 4 }}>{schedule.event}</h3>
+              <p className="muted">{schedule.date} at {schedule.time} • {schedule.venue}</p>
             </div>
-            <div className="space-x-2">
-              <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Edit</button>
-              <button className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700">Delete</button>
+            <div>
+              <button className="btn btn-blue" style={{ marginRight: 8 }}>Edit</button>
+              <button className="btn btn-red">Delete</button>
             </div>
           </div>
         ))}

@@ -16,88 +16,77 @@ export default function Login() {
   };
 
  return (
-  <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#5b0dee] via-[#8f59e6] to-[#2575fc] px-4">
+  <div className="login-bg">
 
-    <div className="backdrop-blur-2xl bg-white/10 border border-white/20 shadow-2xl rounded-3xl p-12 w-full max-w-lg text-white">
+    <div className="glass">
 
       {/* Title */}
-      <div className="text-center mb-10">
-        <h1 className="text-4xl font-extrabold tracking-tight drop-shadow-lg">
+      <div className="text-center mb-10" style={{color:'#fff'}}>
+        <h1 className="title-xl" style={{color:'#fff'}}>
           Career Fair 2025
         </h1>
-        <p className="text-gray-200 mt-2 text-sm">
+        <p className="muted" style={{color:'rgba(255,255,255,0.9)'}}>
           Sign in to continue
         </p>
       </div>
 
       {/* Role Tabs */}
-      <div className="flex bg-white/20 rounded-full p-1 mb-10 shadow-inner">
+      <div className="tabs">
         <button
           onClick={() => setSelectedRole('student')}
-          className={`flex-1 py-3 rounded-full font-semibold transition-all duration-200 ${
-            selectedRole === 'student'
-              ? 'bg-white text-purple-700 shadow-lg'
-              : 'text-white/80 hover:text-white'
-          }`}
+          className={`tab ${selectedRole === 'student' ? 'active' : ''}`}
         >
           🎓 Student
         </button>
 
         <button
           onClick={() => setSelectedRole('admin')}
-          className={`flex-1 py-3 rounded-full font-semibold transition-all duration-200 ${
-            selectedRole === 'admin'
-              ? 'bg-white text-purple-700 shadow-lg'
-              : 'text-white/80 hover:text-white'
-          }`}
+          className={`tab ${selectedRole === 'admin' ? 'active admin' : ''}`}
         >
           💼 Admin
         </button>
       </div>
 
       {/* Form */}
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} style={{display:'grid', gap:16}}>
 
         {/* Email */}
         <div>
-          <label className="block text-sm font-medium mb-1 text-white/90">Email</label>
+          <label className="label" style={{color:'#fff'}}>Email</label>
           <input
             type="email"
             value={email}
             style={{ color: "black" }}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"
-            className="w-full px-4 py-3 rounded-xl bg-white/95 border border-white/40 focus:ring-4 focus:ring-purple-400 outline-none shadow-sm"
+            className="form-field"
           />
         </div>
 
         {/* Password */}
         <div>
-          <label className="block text-sm font-medium mb-1 text-white/90">Password</label>
+          <label className="label" style={{color:'#fff'}}>Password</label>
           <input
             type="password"
             value={password}
             style={{ color: "black" }}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Enter your password"
-            className="w-full px-4 py-3 rounded-xl bg-white/95 border border-white/40 focus:ring-4 focus:ring-purple-400 outline-none shadow-sm"
+            className="form-field"
           />
         </div>
 
         {/* Login Button */}
-        <button
-          type="submit"
-          className="w-full py-3 rounded-xl bg-white text-purple-700 font-bold text-lg shadow-xl hover:scale-[1.03] active:scale-[0.98] transition-all"
-        >
+        <button type="submit" className="btn btn-purple w-full" style={{fontSize:16}}>
           Login as {selectedRole === 'student' ? 'Student' : 'Admin'}
         </button>
 
       </form>
 
       {/* Register */}
-      <p className="text-center text-white/80 mt-8 text-sm">
+      <p className="text-center" style={{color:'rgba(255,255,255,0.85)', marginTop:16, fontSize:14}}>
         Don’t have an account?{" "}
-        <a href="#" className="text-white font-bold underline hover:text-yellow-300">
+        <a href="#" className="link" style={{color:'#fff', fontWeight:800}}>
           Register here
         </a>
       </p>

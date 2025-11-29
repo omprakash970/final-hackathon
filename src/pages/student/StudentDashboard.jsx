@@ -1,43 +1,39 @@
 export default function StudentDashboard() {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6 text-gray-800">Student Dashboard</h1>
-      
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        <div className="bg-white rounded-lg shadow p-6 border-l-4 border-blue-500">
-          <h3 className="text-lg font-semibold text-gray-600">Companies</h3>
-          <p className="text-3xl font-bold text-blue-600">12</p>
+    <div className="container" style={{ padding: '32px 16px' }}>
+      <h1 className="title-xl mb-8">Student Dashboard</h1>
+
+      <div className="grid-3 mb-8">
+        <div className="card" style={{ borderLeft: '4px solid var(--primary)' }}>
+          <h3 className="muted mb-2">Companies</h3>
+          <p className="title-lg" style={{ margin: 0 }}>12</p>
         </div>
-        <div className="bg-white rounded-lg shadow p-6 border-l-4 border-green-500">
-          <h3 className="text-lg font-semibold text-gray-600">Booths Visited</h3>
-          <p className="text-3xl font-bold text-green-600">5</p>
+        <div className="card" style={{ borderLeft: '4px solid var(--green)' }}>
+          <h3 className="muted mb-2">Booths Visited</h3>
+          <p className="title-lg" style={{ margin: 0 }}>5</p>
         </div>
-        <div className="bg-white rounded-lg shadow p-6 border-l-4 border-purple-500">
-          <h3 className="text-lg font-semibold text-gray-600">Scheduled</h3>
-          <p className="text-3xl font-bold text-purple-600">3</p>
+        <div className="card" style={{ borderLeft: '4px solid #8b5cf6' }}>
+          <h3 className="muted mb-2">Scheduled</h3>
+          <p className="title-lg" style={{ margin: 0 }}>3</p>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-white rounded-lg shadow p-6">
-          <h3 className="text-lg font-semibold mb-4 text-gray-800">Upcoming Events</h3>
-          <ul className="space-y-3">
-            <li className="flex justify-between items-center p-3 bg-gray-50 rounded">
-              <span>Google Tech Talk</span>
-              <span className="text-sm text-gray-500">2:00 PM</span>
-            </li>
-            <li className="flex justify-between items-center p-3 bg-gray-50 rounded">
-              <span>Amazon Interview</span>
-              <span className="text-sm text-gray-500">4:00 PM</span>
-            </li>
-          </ul>
+      <div className="grid-2">
+        <div className="card">
+          <h3 className="title-lg">Upcoming Events</h3>
+          <div className="section-muted row space-between mb-3">
+            <span>Google Tech Talk</span>
+            <span className="muted" style={{ fontSize: 12 }}>2:00 PM</span>
+          </div>
+          <div className="section-muted row space-between">
+            <span>Amazon Interview</span>
+            <span className="muted" style={{ fontSize: 12 }}>4:00 PM</span>
+          </div>
         </div>
-        <div className="bg-white rounded-lg shadow p-6">
-          <h3 className="text-lg font-semibold mb-4 text-gray-800">Your Resume</h3>
-          <p className="text-gray-600 mb-4">Keep your resume updated for better opportunities</p>
-          <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-            Update Resume
-          </button>
+        <div className="card">
+          <h3 className="title-lg">Your Resume</h3>
+          <p className="muted mb-3">Keep your resume updated for better opportunities</p>
+          <button className="btn btn-primary">Update Resume</button>
         </div>
       </div>
     </div>

@@ -1,9 +1,12 @@
-export default function Button({ children, onClick, className }) {
+export default function Button({ children, onClick, className = '', variant = 'primary' }) {
+  const map = {
+    primary: 'btn btn-primary',
+    green: 'btn btn-green',
+    outline: 'btn btn-outline',
+  };
+  const classes = `${map[variant] || map.primary}${className ? ' ' + className : ''}`;
   return (
-    <button
-      onClick={onClick}
-      className={`px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition ${className}`}
-    >
+    <button onClick={onClick} className={classes}>
       {children}
     </button>
   );

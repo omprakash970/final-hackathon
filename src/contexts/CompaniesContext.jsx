@@ -1,4 +1,6 @@
 import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
+import googleLogo from '../assets/logos/google.png';
+import amazonLogo from '../assets/logos/amazon.png';
 
 const CompaniesContext = createContext(null);
 export function useCompanies() { return useContext(CompaniesContext); }
@@ -7,7 +9,7 @@ const STORAGE_KEY = 'cf-companies';
 
 const defaultCompanies = [
   { id: 1, name: 'Google', status: 'Active', booths: 2, logo: '/assets/logos/google.png', description: 'Technology & Cloud Computing' },
-  { id: 2, name: 'Amazon', status: 'Active', booths: 3, logo: '/assets/logos/amazon.png', description: 'E-commerce & AWS Services' },
+  { id: 2, name: 'Amazon', status: 'Active', booths: 3, logo: amazonLogo, description: 'E-commerce & AWS Services' },
   { id: 3, name: 'Infosys', status: 'Pending', booths: 1, logo: '/assets/logos/infosys.png', description: 'IT Services & Consulting' },
 ];
 
@@ -21,7 +23,7 @@ export function CompaniesProvider({ children }) {
   });
 
   useEffect(() => {
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(companies)); } catch {}
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(companies)); } catch { /* ignore persistence errors */ void 0; }
   }, [companies]);
 
   const addCompany = useCallback((data) => {

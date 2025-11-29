@@ -1,8 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../App";
+import { useAuth, useTheme } from "../App";
 
 export default function Navbar({ role }) {
   const { logout } = useAuth();
+  const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -31,6 +32,14 @@ export default function Navbar({ role }) {
           </>
         )}
 
+        <button
+          onClick={toggleTheme}
+          className={theme === 'dark' ? 'btn btn-outline' : 'btn btn-outline'}
+          style={{ marginRight: 8 }}
+          aria-label="Toggle dark mode"
+        >
+          {theme === 'dark' ? 'Light' : 'Dark'}
+        </button>
         <button
           onClick={handleLogout}
           className={role === 'admin' ? 'btn btn-green' : 'btn btn-primary'}

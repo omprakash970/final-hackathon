@@ -43,9 +43,9 @@ function AppLayout({ children }) {
   const { user } = useAuth()
   
   return (
-    <div className="flex flex-col min-h-screen bg-gray-100">
+    <div className="page">
       <Navbar role={user?.role} />
-      <main className="flex-1">{children}</main>
+      <main className="page-main">{children}</main>
       <Footer />
     </div>
   )

@@ -4,10 +4,10 @@ import Footer from '../components/Footer';
 
 export default function StudentLayout({ children }) {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="page">
       <Navbar />
-      <main className="flex-1 max-w-7xl mx-auto w-full px-4 py-8">
-        {children}
+      <main className="page-main">
+        <div className="container" style={{ padding: '32px 16px' }}>{children}</div>
       </main>
       <Footer />
     </div>

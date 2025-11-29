@@ -1,3 +1,5 @@
+ 
+
 export default function StudentDashboard() {
   return (
     <div className="container" style={{ padding: '32px 16px' }}>
@@ -21,11 +23,32 @@ export default function StudentDashboard() {
       <div className="grid-2">
         <div className="card">
           <h3 className="title-lg">Upcoming Events</h3>
-          <div className="section-muted row space-between mb-3">
+          <div className="section-muted row space-between mb-3 "style={{color:'blue'}} >
             <span>Google Tech Talk</span>
             <span className="muted" style={{ fontSize: 12 }}>2:00 PM</span>
           </div>
-          <div className="section-muted row space-between">
+           <div className="section-muted row space-between mb-3 "style={{color:'blue'}} >
+            <span>Microsoft Azure Virtual Training session</span>
+            <span className="muted" style={{ fontSize: 12 }}>2:00 PM</span>
+          </div>
+           <div className="section-muted row space-between mb-3 "style={{color:'blue'}} >
+            <span>Apple Student Fest </span>
+            <span className="muted" style={{ fontSize: 12 }}>2:00 PM</span>
+          </div>
+           <div className="section-muted row space-between mb-3 "style={{color:'blue'}} >
+            <span>Google STEP trails </span>
+            <span className="muted" style={{ fontSize: 12 }}>2:00 PM</span>
+          </div>
+           <div className="section-muted row space-between mb-3 "style={{color:'blue'}} >
+            <span>Salesforce Associate training</span>
+            <span className="muted" style={{ fontSize: 12 }}>2:00 PM</span>
+          </div>
+           <div className="section-muted row space-between mb-3 "style={{color:'blue'}} >
+            <span>Mock Interview(Apple)</span>
+            <span className="muted" style={{ fontSize: 12 }}>2:00 PM</span>
+          </div>
+
+          <div className="section-muted row space-between " style={{color:'blue'}}>
             <span>Amazon Interview</span>
             <span className="muted" style={{ fontSize: 12 }}>4:00 PM</span>
           </div>

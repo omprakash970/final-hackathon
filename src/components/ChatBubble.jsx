@@ -15,3 +15,4 @@ export default function ChatBubble({ message, sender = 'user' }) {
     </div>
   );
 }
+

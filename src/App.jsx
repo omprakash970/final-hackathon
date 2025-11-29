@@ -8,6 +8,7 @@ import Login from './pages/Login'
 import StudentDashboard from './pages/student/StudentDashboard'
 import StudentCompanies from './pages/student/StudentCompanies'
 import StudentChat from './pages/student/StudentChat'
+import CompanyBooth from './pages/booths/CompanyBooth'
 import AdminDashboard from './pages/admin/AdminDashboard'
 import AdminCompanies from './pages/admin/AdminCompanies'
 import AdminSchedule from './pages/admin/AdminSchedule'
@@ -105,6 +106,16 @@ function App() {
           <Route path="/student/chat" element={
             <ProtectedRoute allowedRole="student">
               <AppLayout><StudentChat /></AppLayout>
+            </ProtectedRoute>
+          } />
+          <Route path="/companies/:slug" element={
+            <ProtectedRoute allowedRole="student">
+              <AppLayout><CompanyBooth /></AppLayout>
+            </ProtectedRoute>
+          } />
+          <Route path="/student/companies/:slug" element={
+            <ProtectedRoute allowedRole="student">
+              <AppLayout><CompanyBooth /></AppLayout>
             </ProtectedRoute>
           } />
           <Route path="/admin/dashboard" element={

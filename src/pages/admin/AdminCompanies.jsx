@@ -4,26 +4,22 @@ import { useCompanies } from '../../contexts/CompaniesContext';
 export default function AdminCompanies() {
   const { companies, addCompany, updateCompany, deleteCompany } = useCompanies();
   const [showForm, setShowForm] = useState(false);
-  const [form, setForm] = useState({ name: '', status: 'Active', booths: 1 });
+  const [form, setForm] = useState({ name: '', description: '', status: 'Active', booths: 1 });
   const [editingId, setEditingId] = useState(null);
 
-  const reset = () => { setForm({ name: '', status: 'Active', booths: 1 }); setEditingId(null); };
+  const reset = () => { setForm({ name: '', description: '', status: 'Active', booths: 1 }); setEditingId(null); };
 
   const submit = (e) => {
     e.preventDefault();
     if (!form.name.trim()) return;
-    if (editingId) {
-      updateCompany(editingId, { ...form });
-    } else {
-      addCompany({ ...form });
-    }
+    if (editingId) updateCompany(editingId, { ...form }); else addCompany({ ...form });
     reset();
     setShowForm(false);
   };
 
   const startEdit = (c) => {
     setEditingId(c.id);
-    setForm({ name: c.name, status: c.status, booths: c.booths });
+    setForm({ name: c.name, description: c.description || '', status: c.status, booths: c.booths });
     setShowForm(true);
   };
 
@@ -41,6 +37,10 @@ export default function AdminCompanies() {
           <div>
             <label className="label">Company Name</label>
             <input className="form-field" value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))} />
+          </div>
+          <div>
+            <label className="label">Description</label>
+            <textarea className="form-field" style={{ height: 96 }} value={form.description} onChange={e => setForm(f => ({ ...f, description: e.target.value }))} />
           </div>
           <div className="row" style={{ gap: 16 }}>
             <div style={{ flex: 1 }}>
@@ -69,6 +69,7 @@ export default function AdminCompanies() {
           <thead>
             <tr>
               <th>Company</th>
+              <th>Description</th>
               <th>Status</th>
               <th>Booths</th>
               <th>Actions</th>
@@ -78,6 +79,7 @@ export default function AdminCompanies() {
             {companies.map((company) => (
               <tr key={company.id}>
                 <td style={{ fontWeight: 700 }}>{company.name}</td>
+                <td style={{ maxWidth: 260 }}>{company.description}</td>
                 <td>
                   {company.status === 'Active' ? (
                     <span className="badge badge-green">Active</span>

@@ -6,9 +6,9 @@ export function useCompanies() { return useContext(CompaniesContext); }
 const STORAGE_KEY = 'cf-companies';
 
 const defaultCompanies = [
-  { id: 1, name: 'Google', status: 'Active', booths: 2, logo: '/assets/logos/google.png' },
-  { id: 2, name: 'Amazon', status: 'Active', booths: 3, logo: '/assets/logos/amazon.png' },
-  { id: 3, name: 'Infosys', status: 'Pending', booths: 1, logo: '/assets/logos/infosys.png' },
+  { id: 1, name: 'Google', status: 'Active', booths: 2, logo: '/assets/logos/google.png', description: 'Technology & Cloud Computing' },
+  { id: 2, name: 'Amazon', status: 'Active', booths: 3, logo: '/assets/logos/amazon.png', description: 'E-commerce & AWS Services' },
+  { id: 3, name: 'Infosys', status: 'Pending', booths: 1, logo: '/assets/logos/infosys.png', description: 'IT Services & Consulting' },
 ];
 
 export function CompaniesProvider({ children }) {
@@ -25,7 +25,15 @@ export function CompaniesProvider({ children }) {
   }, [companies]);
 
   const addCompany = useCallback((data) => {
-    setCompanies(prev => [...prev, { id: Date.now(), ...data }]);
+    const company = {
+      id: Date.now(),
+      name: data.name || 'Untitled',
+      status: data.status || 'Active',
+      booths: data.booths || 1,
+      logo: data.logo || '/assets/logos/placeholder.png',
+      description: data.description || 'No description yet.'
+    };
+    setCompanies(prev => [...prev, company]);
   }, []);
 
   const updateCompany = useCallback((id, updates) => {
@@ -36,6 +44,12 @@ export function CompaniesProvider({ children }) {
     setCompanies(prev => prev.filter(c => c.id !== id));
   }, []);
 
-  const value = { companies, addCompany, updateCompany, deleteCompany };
+  // Ensure legacy entries without description have fallback when consumed
+  const hydrated = companies.map(c => ({
+    ...c,
+    description: c.description || 'No description yet.'
+  }));
+
+  const value = { companies: hydrated, addCompany, updateCompany, deleteCompany };
   return <CompaniesContext.Provider value={value}>{children}</CompaniesContext.Provider>;
 }

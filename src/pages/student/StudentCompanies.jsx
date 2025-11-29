@@ -14,7 +14,12 @@ export default function StudentCompanies() {
       ) : (
         <div className="grid-3">
           {companies.map((company) => (
-            <CompanyCard key={company.id} name={company.name} logo={company.logo} description={`${company.status} • Booths: ${company.booths}`} />
+            <CompanyCard
+              key={company.id}
+              name={company.name}
+              logo={company.logo}
+              description={`${company.description} • ${company.status} • Booths: ${company.booths}`}
+            />
           ))}
         </div>
       )}

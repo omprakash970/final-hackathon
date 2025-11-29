@@ -1,0 +1,27 @@
+// Color Variables
+$primary: #3B82F6;
+$secondary: #1F2937;
+$accent: #10B981;
+$error: #EF4444;
+$warning: #F59E0B;
+$success: #10B981;
+
+// Spacing Variables
+$spacing-unit: 0.25rem;
+$spacing-1: $spacing-unit * 4;
+$spacing-2: $spacing-unit * 8;
+$spacing-3: $spacing-unit * 12;
+$spacing-4: $spacing-unit * 16;
+$spacing-5: $spacing-unit * 20;
+
+// Font Variables
+$font-primary: 'system-ui', 'Avenir', 'Helvetica', 'Arial', sans-serif;
+$font-size-base: 1rem;
+$font-size-lg: 1.125rem;
+$font-size-xl: 1.25rem;
+
+// Breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;

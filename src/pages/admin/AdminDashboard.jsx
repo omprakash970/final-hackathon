@@ -40,7 +40,7 @@ export default function AdminDashboard() {
       {showForm && (
         <form onSubmit={submit} className="card mb-8" style={{ display: 'grid', gap: 16 }}>
           <div>
-            <label className="label">Company Name</label>
+            <label className="label" >Company Name</label>
             <input className="form-field" value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))} />
           </div>
             <div>

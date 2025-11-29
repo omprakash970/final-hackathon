@@ -1,6 +1,36 @@
- 
+import { useRef, useState } from 'react';
 
 export default function StudentDashboard() {
+  const fileInputRef = useRef(null);
+  const initialResume = (() => {
+    try {
+      const raw = typeof window !== 'undefined' ? localStorage.getItem('cf-resume') : null;
+      return raw ? JSON.parse(raw) : { name: '', url: '' };
+    } catch {
+      return { name: '', url: '' };
+    }
+  })();
+  const [resumeName, setResumeName] = useState(initialResume.name);
+  const [resumeUrl, setResumeUrl] = useState(initialResume.url);
+
+  const onPickResume = () => {
+    fileInputRef.current?.click();
+  };
+
+  const onFileChange = (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    if (file.type !== 'application/pdf') {
+      alert('Please select a PDF file.');
+      return;
+    }
+    const url = URL.createObjectURL(file);
+    setResumeName(file.name);
+    setResumeUrl(url);
+    try { localStorage.setItem('cf-resume', JSON.stringify({ name: file.name, url })); }
+    catch { /* ignore storage errors */ }
+  };
+
   return (
     <div className="container" style={{ padding: '32px 16px' }}>
       <h1 className="title-xl mb-8">Student Dashboard</h1>
@@ -56,7 +86,24 @@ export default function StudentDashboard() {
         <div className="card">
           <h3 className="title-lg">Your Resume</h3>
           <p className="muted mb-3">Keep your resume updated for better opportunities</p>
-          <button className="btn btn-primary">Update Resume</button>
+          {resumeName ? (
+            <div className="section-muted mb-3">
+              <div className="row space-between">
+                <span className="muted">{resumeName}</span>
+                {resumeUrl && (
+                  <a href={resumeUrl} target="_blank" rel="noreferrer" className="link">Preview</a>
+                )}
+              </div>
+            </div>
+          ) : null}
+          <button className="btn btn-primary" onClick={onPickResume}>Update Resume</button>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="application/pdf"
+            style={{ display: 'none' }}
+            onChange={onFileChange}
+          />
         </div>
       </div>
     </div>

@@ -11,7 +11,11 @@ export default function TCSBooth() {
     { title: 'Business Analyst', location: 'Bengaluru, IN', type: 'Full-time', experience: '2-5 yrs' },
     { title: 'Salesforce Developer', location: 'Ahmedabad, IN', type: 'Full-time', experience: '1-3 yrs' },
     { title: 'SAP ABAP Consultant', location: 'Gurugram, IN', type: 'Full-time', experience: '2-5 yrs' },
-    { title: 'DevOps Engineer', location: 'Remote (IN)', type: 'Full-time', experience: '1-3 yrs' }
+    { title: 'DevOps Engineer', location: 'Remote (IN)', type: 'Full-time', experience: '1-3 yrs' },
+    { title: 'ETL Developer', location: 'Mumbai, IN', type: 'Full-time', experience: '2-4 yrs' },
+    { title: 'Cloud Engineer', location: 'Hyderabad, IN', type: 'Full-time', experience: '2-4 yrs' },
+    { title: 'Automation Tester', location: 'Chennai, IN', type: 'Full-time', experience: '1-3 yrs' },
+    { title: 'Data Visualization Analyst', location: 'Pune, IN', type: 'Full-time', experience: '1-3 yrs' }
   ];
   return (
     <div className="container" style={{ padding: '32px 16px' }}>

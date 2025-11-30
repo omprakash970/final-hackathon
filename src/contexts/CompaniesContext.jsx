@@ -2,6 +2,9 @@ import React, { createContext, useContext, useEffect, useState, useCallback } fr
 import googleLogo from '../assets/logos/google.png';
 import amazonLogo from '../assets/logos/amazon.png';
 import infosysLogo from '../assets/logos/infosys.png';
+import microsoftLogo from '../assets/logos/microsoft.png.png';
+import netflixLogo from '../assets/logos/netflix.png.png';
+// Placeholder: additional company logos can be added similarly when assets are available
 
 const CompaniesContext = createContext(null);
 export function useCompanies() { return useContext(CompaniesContext); }
@@ -12,6 +15,10 @@ const defaultCompanies = [
   { id: 1, name: 'Google', status: 'Active', booths: 2, logo: googleLogo, description: 'Technology & Cloud Computing' },
   { id: 2, name: 'Amazon', status: 'Active', booths: 3, logo: amazonLogo, description: 'E-commerce & AWS Services' },
   { id: 3, name: 'Infosys', status: 'Pending', booths: 1, logo: infosysLogo, description: 'IT Services & Consulting' },
+  { id: 4, name: 'Microsoft', status: 'Active', booths: 2, logo: microsoftLogo, description: 'Software, Cloud & Productivity' },
+  { id: 5, name: 'Meta', status: 'Active', booths: 2, logo: undefined, description: 'Social Platforms & AR/VR' },
+  { id: 6, name: 'Apple', status: 'Active', booths: 2, logo: undefined, description: 'Consumer Hardware & Services' },
+  { id: 7, name: 'Netflix', status: 'Active', booths: 1, logo: netflixLogo, description: 'Streaming & Content Technology' },
 ];
 
 export function CompaniesProvider({ children }) {
@@ -19,7 +26,12 @@ export function CompaniesProvider({ children }) {
     if (typeof window === 'undefined') return defaultCompanies;
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
-      return raw ? JSON.parse(raw) : defaultCompanies;
+      const stored = raw ? JSON.parse(raw) : [];
+      // Merge defaults (by name uniqueness) with stored data without overwriting stored entries
+      const names = new Set(stored.map(c => c.name));
+      const merged = [...stored];
+      defaultCompanies.forEach(def => { if (!names.has(def.name)) merged.push(def); });
+      return merged.length ? merged : defaultCompanies;
     } catch { return defaultCompanies; }
   });
 
@@ -48,7 +60,7 @@ export function CompaniesProvider({ children }) {
   }, []);
 
   // Ensure legacy entries without description/logo have fallback when consumed
-  const logoMap = { Google: googleLogo, Amazon: amazonLogo, Infosys: infosysLogo };
+  const logoMap = { Google: googleLogo, Amazon: amazonLogo, Infosys: infosysLogo, Microsoft: microsoftLogo, Netflix: netflixLogo };
   const hydrated = companies.map(c => ({
     ...c,
     description: c.description || 'No description yet.',

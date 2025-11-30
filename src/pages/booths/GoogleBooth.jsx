@@ -12,7 +12,11 @@ export default function GoogleBooth() {
     { title: 'Product Manager', location: 'Mountain View, CA', type: 'Full-time', experience: '3-6 yrs' },
     { title: 'UX Designer', location: 'San Francisco, CA', type: 'Full-time', experience: '2-4 yrs' },
     { title: 'QA Engineer', location: 'Remote (US)', type: 'Full-time', experience: '1-3 yrs' },
-    { title: 'Machine Learning Engineer', location: 'Toronto, CA', type: 'Full-time', experience: '2-5 yrs' }
+    { title: 'Machine Learning Engineer', location: 'Toronto, CA', type: 'Full-time', experience: '2-5 yrs' },
+    { title: 'Security Engineer', location: 'Mountain View, CA', type: 'Full-time', experience: '3-6 yrs' },
+    { title: 'Data Platform Engineer', location: 'Sunnyvale, CA', type: 'Full-time', experience: '2-5 yrs' },
+    { title: 'Android Engineer', location: 'London, UK', type: 'Full-time', experience: '2-4 yrs' },
+    { title: 'Chrome Performance Engineer', location: 'Remote (EU)', type: 'Full-time', experience: '3-6 yrs' }
   ];
   return (
     <div className="container" style={{ padding: '32px 16px' }}>

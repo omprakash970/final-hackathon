@@ -12,7 +12,11 @@ export default function InfosysBooth() {
     { title: 'Cloud Administrator', location: 'Bengaluru, IN', type: 'Full-time', experience: '2-4 yrs' },
     { title: 'UI Developer', location: 'Pune, IN', type: 'Full-time', experience: '1-3 yrs' },
     { title: 'DevOps Engineer', location: 'Remote (IN)', type: 'Full-time', experience: '1-3 yrs' },
-    { title: 'SAP Consultant', location: 'Mumbai, IN', type: 'Full-time', experience: '3-6 yrs' }
+    { title: 'SAP Consultant', location: 'Mumbai, IN', type: 'Full-time', experience: '3-6 yrs' },
+    { title: 'Cybersecurity Analyst', location: 'Hyderabad, IN', type: 'Full-time', experience: '1-3 yrs' },
+    { title: 'Data Engineer', location: 'Chennai, IN', type: 'Full-time', experience: '2-4 yrs' },
+    { title: 'Automation Test Engineer', location: 'Bengaluru, IN', type: 'Full-time', experience: '2-4 yrs' },
+    { title: 'Business Analyst', location: 'Delhi, IN', type: 'Full-time', experience: '2-5 yrs' }
   ];
   return (
     <div className="container" style={{ padding: '32px 16px' }}>

@@ -12,7 +12,11 @@ export default function AmazonBooth() {
     { title: 'Solutions Architect', location: 'London, UK', type: 'Full-time', experience: '3-6 yrs' },
     { title: 'DevOps Engineer', location: 'Vancouver, CA', type: 'Full-time', experience: '2-5 yrs' },
     { title: 'QA Engineer', location: 'Remote (US)', type: 'Full-time', experience: '1-3 yrs' },
-    { title: 'Technical Program Manager', location: 'Seattle, WA', type: 'Full-time', experience: '4-7 yrs' }
+    { title: 'Technical Program Manager', location: 'Seattle, WA', type: 'Full-time', experience: '4-7 yrs' },
+    { title: 'Security Engineer', location: 'Seattle, WA', type: 'Full-time', experience: '3-6 yrs' },
+    { title: 'Data Platform Engineer', location: 'New York, NY', type: 'Full-time', experience: '2-5 yrs' },
+    { title: 'Solutions Architect Intern', location: 'Remote (US)', type: 'Internship', experience: '2026 Grad' },
+    { title: 'Sales Operations Analyst', location: 'London, UK', type: 'Full-time', experience: '2-4 yrs' }
   ];
   return (
     <div className="container" style={{ padding: '32px 16px' }}>

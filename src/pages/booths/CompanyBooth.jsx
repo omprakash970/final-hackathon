@@ -4,6 +4,10 @@ import GoogleBooth from './GoogleBooth';
 import AmazonBooth from './AmazonBooth';
 import InfosysBooth from './InfosysBooth';
 import TCSBooth from './TCSBooth';
+import MicrosoftBooth from './MicrosoftBooth';
+import MetaBooth from './MetaBooth';
+import AppleBooth from './AppleBooth';
+import NetflixBooth from './NetflixBooth';
 
 export default function CompanyBooth() {
   const { slug } = useParams();
@@ -18,6 +22,14 @@ export default function CompanyBooth() {
       return <InfosysBooth />;
     case 'tcs':
       return <TCSBooth />;
+    case 'microsoft':
+      return <MicrosoftBooth />;
+    case 'meta':
+      return <MetaBooth />;
+    case 'apple':
+      return <AppleBooth />;
+    case 'netflix':
+      return <NetflixBooth />;
     default:
       return (
         <div className="container" style={{ padding: '32px 16px' }}>

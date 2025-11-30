@@ -6,11 +6,13 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [selectedRole, setSelectedRole] = useState('student');
+  const [humanCheck, setHumanCheck] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!humanCheck) return;
     login(selectedRole);
     navigate(`/${selectedRole}/dashboard`);
   };
@@ -21,12 +23,12 @@ export default function Login() {
     <div className="glass">
 
       {/* Title */}
-      <div className="text-center mb-10" style={{color:'#fff'}}>
-        <h1 className="title-xl" style={{color:'#fff'}}>
+      <div className="text-center mb-10">
+        <h1 className="title-xl" style={{ color: '#e2e8f0' }}>
           Career Fair 2025
         </h1>
-        <p className="muted" style={{color:'rgba(255,255,255,0.9)'}}>
-          Sign in to continue(Enter any email and password to continue)
+        <p className="muted" style={{ color: '#cbd5e1' }}>
+          Sign in to continue (Enter any email and password)
         </p>
       </div>
 
@@ -52,7 +54,7 @@ export default function Login() {
 
         {/* Email */}
         <div>
-          <label className="label" style={{color:'#fff'}}>Email</label>
+          <label className="label" style={{ color: '#e2e8f0' }}>Email</label>
           <input
             type="email"
             value={email}
@@ -65,7 +67,7 @@ export default function Login() {
 
         {/* Password */}
         <div>
-          <label className="label" style={{color:'#fff'}}>Password</label>
+          <label className="label" style={{ color: '#e2e8f0' }}>Password</label>
           <input
             type="password"
             value={password}
@@ -76,17 +78,31 @@ export default function Login() {
           />
         </div>
 
+        {/* Human verification (Simple reCAPTCHA-style checkbox) */}
+        <div className="section-muted" style={{ display:'flex', alignItems:'center', gap:12, background:'rgba(2,6,23,0.4)' }}>
+          <input
+            id="human-check"
+            type="checkbox"
+            checked={humanCheck}
+            onChange={(e) => setHumanCheck(e.target.checked)}
+            style={{ width:18, height:18 }}
+          />
+          <label htmlFor="human-check" className="muted" style={{ color:'#cbd5e1' }}>
+            I'm not a robot
+          </label>
+        </div>
+
         {/* Login Button */}
-        <button type="submit" className="btn btn-purple w-full" style={{fontSize:16}}>
+        <button type="submit" className="btn btn-purple w-full" style={{fontSize:16}} disabled={!humanCheck}>
           Login as {selectedRole === 'student' ? 'Student' : 'Admin'}
         </button>
 
       </form>
 
       {/* Register */}
-      <p className="text-center" style={{color:'rgba(255,255,255,0.85)', marginTop:16, fontSize:14}}>
+      <p className="text-center" style={{ color:'#cbd5e1', marginTop:16, fontSize:14 }}>
         Don’t have an account?{" "}
-        <a href="#" className="link" style={{color:'#fff', fontWeight:800}}>
+        <a href="#" className="link" style={{ color:'#e2e8f0', fontWeight:800 }}>
           Register here
         </a>
       </p>

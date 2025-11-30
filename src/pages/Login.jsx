@@ -26,7 +26,7 @@ export default function Login() {
           Career Fair 2025
         </h1>
         <p className="muted" style={{color:'rgba(255,255,255,0.9)'}}>
-          Sign in to continue
+          Sign in to continue(Enter any email and password to continue)
         </p>
       </div>
 

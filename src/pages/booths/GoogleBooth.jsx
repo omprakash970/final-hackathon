@@ -31,7 +31,7 @@ export default function GoogleBooth() {
       </div>
       <h1 className="title-xl mb-6">Google Booth</h1>
       <div className="card">
-        <p className="muted mb-4">Welcome to Google's booth at the Career Fair!</p>
+        <p className="muted mb-4">Google is basically the backbone of the internet, serving billions of people with mind-blowing speed and accuracy. It started as a simple search engine but evolved into a full-on tech empire powering Android, YouTube, Gmail, and cloud AI. From organizing the world’s information to pushing the limits of machine learning, Google pretty much sets the standard for modern tech innovation. Its products shape how we learn, work, chill, and stay connected every single day. Overall, Google isn’t just a company — it’s the ecosystem the whole digital world runs on.</p>
       </div>
       <div className="card mt-4">
         <h2 className="title-md mb-3">Job Offers</h2>

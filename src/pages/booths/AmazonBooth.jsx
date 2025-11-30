@@ -21,7 +21,7 @@ export default function AmazonBooth() {
       </div>
       <h1 className="title-xl mb-6">Amazon Booth</h1>
       <div className="card">
-        <p className="muted mb-4">Welcome to Amazon's booth at the Career Fair!</p>
+        <p className="muted mb-4">Amazon is the global giant that straight-up redefined online shopping and digital convenience. What started as a small online bookstore is now a massive ecosystem powering e-commerce, cloud computing, entertainment, and smart home tech. With Amazon Prime, AWS, and its ridiculously efficient logistics network, the company sets the benchmark for speed, scale, and customer obsession. It’s the brand that turned “one-day delivery” from a dream into an expectation. Amazon isn’t just a marketplace — it’s a tech-powered lifestyle.</p>
       </div>
       <div className="card mt-4">
         <h2 className="title-md mb-3">Job Offers</h2>

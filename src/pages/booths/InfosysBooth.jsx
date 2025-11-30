@@ -21,7 +21,7 @@ export default function InfosysBooth() {
       </div>
       <h1 className="title-xl mb-6">Infosys Booth</h1>
       <div className="card">
-        <p className="muted mb-4">Welcome to Infosys' booth at the Career Fair!</p>
+        <p className="muted mb-4">Infosys is a global leader in next-generation digital services and consulting. With a rich heritage of over four decades, Infosys empowers clients to navigate their digital transformation journeys with innovative solutions and cutting-edge technologies. From AI and automation to cloud and cybersecurity, Infosys is at the forefront of driving business agility and growth. The company’s commitment to sustainability, diversity, and ethical practices makes it a trusted partner for organizations worldwide. Infosys isn’t just a tech company — it’s a catalyst for positive change in the digital era.</p>
       </div>
       <div className="card mt-4">
         <h2 className="title-md mb-3">Job Offers</h2>
